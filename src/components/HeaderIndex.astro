@@ -1,6 +1,12 @@
+
+
+
 ---
 // src/components/HeaderIndex.astro
+const { base } = Astro.props;
 ---
+
+
 <div class="menu-overlay" id="menuOverlay"></div>
 <nav class="menu-lateral" id="menuLateral">
     <button class="menu-cerrar" id="menuCerrar">&times;</button>
@@ -15,7 +21,8 @@
         <button class="menu-btn"><span>&#9776;</span></button>
         <div class="logo-bloque">
             <a href="/">
-                <img src="/img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico">
+                <img src={`${base}/img/LOGO BLANCO.png`} alt="MALCRIOLLA" class="logo-dinamico">
+                
             </a>
         </div>
     </div>
