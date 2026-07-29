@@ -1,0 +1,210 @@
+/* --- Header Fijo con Estructura de 3 Columnas Simétricas (PC) --- */
+header {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    align-items: center !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    padding: 12px 30px !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    box-sizing: border-box !important;
+    border-bottom: 1px solid #eee !important;
+}
+
+/* Columna Izquierda: Agrupa el botón menú y el bloque del logo */
+header > div:first-of-type {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    justify-self: start !important;
+}
+
+header .menu-btn {
+    background: transparent;
+    border: none;
+    color: #000000 !important;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.logo-bloque { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+header .logo-dinamico {
+    height: 25px !important;
+    width: auto !important;
+    content: url("../img/LOGO NEGRO.png") !important;
+}
+
+/* Columna Central: Menú de navegación obligado a vivir en la columna 2 y centrado */
+.nav-desktop {
+    display: flex !important;
+    gap: 35px !important;
+    justify-content: center !important;
+    justify-self: center !important;
+    grid-column: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-desktop a {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000000 !important;
+    transition: opacity 0.3s ease;
+}
+
+.nav-desktop a:hover {
+    opacity: 0.6;
+}
+
+/* Columna Derecha: Redes / Instagram alineadas al extremo derecho */
+header > .ig-link {
+    justify-self: end !important;
+    color: #000000 !important;
+    display: flex;
+    align-items: center;
+}
+
+/* --- ADAPTACIÓN PARA MÓVILES (Celulares) --- */
+@media (max-width: 768px) {
+    header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 20px !important;
+    }
+
+    .nav-desktop {
+        display: none !important;
+    }
+
+    header > div:first-of-type {
+        gap: 0 !important;
+    }
+
+    .logo-bloque {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    header > .ig-link {
+        justify-self: auto !important;
+    }
+
+    .colecciones-grid {
+        padding-top: 50px !important; /* Baja la grilla para que quede más cerca del header */
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* --- Forzar visibilidad del Botón de WhatsApp en Colecciones --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* --- Estilos de la Grilla de Colecciones --- */
+.colecciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 100px 20px 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.coleccion-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.coleccion-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    margin-bottom: 20px;
+    transition: filter 0.5s ease;
+}
+
+.coleccion-card h3 {
+    font-family: 'Metrim', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+}
+
+.btn-ver-coleccion {
+    align-self: flex-start;
+    padding: 10px 25px;
+    border: 1px solid #000;
+    color: #000;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.btn-ver-coleccion:hover {
+    background: #000;
+    color: #fff;
+}
+
+.nav-galeria { 
+    padding: 20px 40px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+.btn-volver { 
+    align-self: flex-start;
+    padding: 10px 25px;
+    border: 1px solid #fff;
+    color: #fff;
+    background: #000;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase; 
+}
+
+.btn-volver:hover {
+    background: #fff;
+    color: #000;
+}

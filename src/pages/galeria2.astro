@@ -1,0 +1,16 @@
+---
+import GaleriaTemplate from '../components/GaleriaTemplate.astro';
+
+const fotos = [
+    { src: "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0739.webp" },
+    // ... tus fotos
+];
+---
+
+<GaleriaTemplate 
+    titulo="Denim Sin Reglas 2024"
+    audioSrc="/tu-tema-2024.mp3"
+    anteriorUrl=""
+    siguienteUrl="/galeria1"
+    imagenes={fotos}
+/>

@@ -1,0 +1,21 @@
+---
+import GaleriaTemplate from '../components/GaleriaTemplate.astro';
+
+// Listado de imágenes de esta galería específica
+const fotos = [
+    { src: "/img/DENIM SIN REGLAS - 2026/1.webp" },
+    { src: "/img/DENIM SIN REGLAS - 2026/04.webp" },
+    { src: "/img/DENIM SIN REGLAS - 2026/4.webp" },
+    { src: "/img/DENIM SIN REGLAS - 2026/7.webp", horizontal: true },
+    { src: "/img/DENIM SIN REGLAS - 2026/8.webp" },
+    // Agregás el resto de tus fotos acá...
+];
+---
+
+<GaleriaTemplate 
+    titulo="Denim Sin Reglas 2026"
+    audioSrc="/God Save The Queen - Sex Pistols.mp3"
+    anteriorUrl="/galeria1"
+    siguienteUrl=""
+    imagenes={fotos}
+/>

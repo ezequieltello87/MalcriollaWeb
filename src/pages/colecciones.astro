@@ -1,0 +1,57 @@
+---
+// src/pages/colecciones.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/style.css'; 
+import '../styles/colecciones.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MALCRIOLLA | Colecciones</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+</head>
+<body>
+
+    <!-- Header Inteligente (Detecta que estamos en colecciones y se pone blanco) -->
+    <Header />
+
+    <section class="colecciones-grid">
+        <div class="coleccion-card">
+            <img src="/img/GALERIA 1/DSC_0739.jpg" alt="CAPSULA DENIM SIN REGLAS 2024">
+            <h3>DENIM SIN REGLAS 2024</h3>
+            <a href="/galeria" class="btn-ver-coleccion">VER COLECCIÓN</a>
+        </div>
+        
+        <div class="coleccion-card">
+            <img src="/img/GALERIA 2025/IMG_2119.jpg" alt="RAÍCES- 2025">
+            <h3>RAÍCES- 2025</h3>
+            <a href="/galeria1" class="btn-ver-coleccion">VER COLECCIÓN</a>
+        </div>
+
+        <div class="coleccion-card">
+            <img src="/img/GALERIA 2026/DSC06757.JPG" alt="DENIM SIN REGLAS - 2026">
+            <h3>DENIM SIN REGLAS - 2026</h3>
+            <a href="/galeria2" class="btn-ver-coleccion">VER COLECCIÓN</a>
+        </div>
+    </section>
+
+    <nav class="nav-galeria">
+        <a href="/" class="btn-volver">&#8592; VOLVER AL INICIO</a>
+    </nav>
+
+    <!-- Footer Modular -->
+    <Footer />
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/5493411234567" class="whatsapp-float show" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </a>
+
+    <!-- Script General -->
+    <script is:inline src="/js/main.js"></script>
+</body>
+</html>

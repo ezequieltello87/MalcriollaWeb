@@ -1,0 +1,116 @@
+---
+// src/pages/index.astro
+import HeaderIndex from '../components/HeaderIndex.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/style.css'; // Asegurate de que tu CSS esté en src/styles/style.css
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MALCRIOLLA | Official Online</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+
+    <!-- Header Modular -->
+    <HeaderIndex />
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="/img/PORTADA/IMG_1924.jpg" alt="Slide 1"></div>
+            <div class="swiper-slide"><img src="/img/PORTADA/IMG_2032.jpg" alt="Slide 2"></div>
+            <div class="swiper-slide"><img src="/img/PORTADA/IMG_2091.jpg" alt="Slide 3"></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <section class="quienes-somos">
+        <div class="texto-container">
+            <h2>Malcriolla</h2>
+            <p>Malcriolla es un estudio de diseño independiente. Creamos colecciones de autor con una estética disruptiva y una identidad definida.</p>
+            <p>Nuestras piezas se caracterizan por la intervención artesanal y una producción limitada que garantiza exclusividad en cada diseño. Desde Rosario, proyectamos moda con actitud.</p>
+        </div>
+    </section>
+
+    <section class="seccion-proceso">
+        <div class="img1">
+            <img src="/img/GALERIA 1/DSC_0739.jpg" alt="Detalle Proceso Artesanal">
+        </div>
+        <h3>Denim sin reglas 2024/2025</h3>
+    </section>
+
+    <section class="grid-bloque">
+        <div class="bloque-img">
+            <img src="/img/GALERIA 1/DSC_0942.jpg" alt="Producción Limitada">
+        </div>
+        <div class="bloque-info">
+            <p>Creemos en el valor de lo escaso. Nuestras cápsulas son exclusivas.</p>
+            &nbsp;
+            <a href="galeria.html" class="btn-ver-todo">VER TODO</a>
+        </div>
+    </section>
+
+    <div class="contenedor-boton-centro">
+        <a href="colecciones" class="btn-colecciones">VER TODAS LAS COLECCIONES</a>
+    </div>
+
+    <section class="seccion-productos">
+        <div class="productos-container">
+            <h2>BUZOS DESTACADOS</h2>
+            <div class="swiper carrusel-buzos">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide producto-card">
+                        <img src="/img/buzos/12345.png" alt="Buzo 1">
+                        <h3>NOMBRE</h3>
+                    </div>
+                    <div class="swiper-slide producto-card">
+                        <img src="/img/buzos/123456 (2).png" alt="Buzo 2">
+                        <h3>NOMBRE</h3>
+                    </div>
+                    <div class="swiper-slide producto-card">
+                        <img src="/img/buzos/123456 (3).png" alt="Buzo 3">
+                        <h3>NOMBRE</h3>
+                    </div>
+                    <div class="swiper-slide producto-card">
+                        <img src="/img/buzos/pity 1.jpg" alt="Buzo Pity">
+                        <h3>NOMBRE</h3>
+                    </div>
+                    <div class="swiper-slide producto-card">
+                        <img src="/img/buzos/INDIO.jpg" alt="Buzo Indio">
+                        <h3>NOMBRE</h3>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Modular -->
+    <Footer />
+
+    <!-- Modal de Imagen -->
+    <div id="imageModal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
+        <span onclick="document.getElementById('imageModal').style.display='none'" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img id="modalImg" style="max-width:90%; max-height:80%; border-radius:4px;" alt="Vista ampliada">
+    </div>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/5493411234567" class="whatsapp-float" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Script Propio (JS Externo) -->
+    <!-- Script Propio (JS Externo) -->
+	<script is:inline src="/js/main.js"></script>
+</body>
+</html>

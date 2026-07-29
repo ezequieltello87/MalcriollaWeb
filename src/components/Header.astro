@@ -1,0 +1,63 @@
+---
+// src/components/Header.astro
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/' || pathname === '';
+---
+
+<!-- Menú Lateral y Overlay integrados -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="menu-lateral" id="menuLateral">
+    <button class="menu-cerrar" id="menuCerrar">&times;</button>
+    <div class="menu-contenido">
+        <a href="/">Inicio</a>
+        <a href="/colecciones">Colecciones</a>
+    </div>
+</nav>
+
+<header class={!isHome ? 'header-blanco-fijo' : ''}>
+    <!-- Bloque Izquierdo (Botón de menú + Logo) -->
+    <div>
+        <button class="menu-btn"><span>&#9776;</span></button>
+        <div class="logo-bloque">
+            <a href="/">
+                {isHome ? (
+                    <img src="/img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico" />
+                ) : (
+                    <img src="/img/LOGO NEGRO.png" alt="MALCRIOLLA" class="logo-estatico" />
+                )}
+            </a>
+        </div>
+    </div>
+
+    <!-- Bloque Central (Menú de navegación centrado solo para PC) -->
+    <nav class="nav-desktop">
+        <a href="/">INICIO</a>
+        <a href="/colecciones">COLECCIONES</a>
+        <a href="https://malcriolla.mitiendanube.com/" target="_blank">TIENDA</a>
+        <a href={isHome ? "#contacto" : "/#contacto"}>QUIENES SOMOS</a>
+    </nav>
+
+    <!-- Bloque Derecho (Redes / Instagram) -->
+    <a href="https://instagram.com/malcriolla" target="_blank" class="ig-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.25.057 2.1.24 2.846.53.77.3 1.32.657 1.896 1.233.575.575.933 1.126 1.233 1.896.29.745.473 1.595.53 2.846.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.057 1.25-.24 2.1-.53 2.846-.3.77-.657 1.32-1.233 1.896-.575.575-1.126.933-1.896 1.233-.745.29-1.595.473-2.846.53-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.25-.057-2.1-.24-2.846-.53-.77-.3-1.32-.657-1.896-1.233-.575-.575-.933-1.126-1.233-1.896-.29-.745-.473-1.595-.53-2.846-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c-.057-1.25.24-2.1.53-2.846.3-.77.657-1.32 1.233-1.896.575-.575 1.126-.933 1.896-1.233.745-.29 1.595-.473 2.846-.53 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.26-2.91.556-.788.305-1.455.714-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.762.296-1.633.498-2.91.556-1.28.058-1.688.072-4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.26 2.91-.556.788-.305 1.455-.714 2.122-1.382.667-.668 1.334-1.077 2.122-1.382.762-.296 1.633-.498 2.91-.556.128-.058 1.688-.072 4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/>
+        </svg>
+    </a>
+</header>
+
+<style>
+    /* Estilo para forzar el header blanco fijo en páginas que no son el inicio */
+    .header-blanco-fijo {
+        background: #ffffff !important;
+        border-bottom: 1px solid #eee !important;
+    }
+    .header-blanco-fijo .nav-desktop a,
+    .header-blanco-fijo .menu-btn,
+    .header-blanco-fijo .ig-link {
+        color: #000000 !important;
+    }
+    .logo-estatico {
+        height: 25px !important;
+        width: auto !important;
+    }
+</style>

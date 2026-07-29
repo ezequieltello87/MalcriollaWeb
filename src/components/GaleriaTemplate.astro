@@ -1,0 +1,88 @@
+---
+// src/components/GaleriaTemplate.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/style.css';
+import '../styles/galeria.css';
+
+interface Imagen {
+    src: string;
+    horizontal?: boolean;
+}
+
+const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{titulo} | MALCRIOLLA</title>
+</head>
+<body>
+
+    <Header />
+
+    <!-- Reproductor de Audio con Navegación Simétrica -->
+    <div class="audio-container-grid">
+        <div class="audio-col-left">
+            {anteriorUrl && (
+                <a href={anteriorUrl} class="audio-flecha" id="btnAnterior">
+                    <span class="flecha-simbolo">&#8249;</span> <span class="flecha-texto">ATRÁS</span>
+                </a>
+            )}
+        </div>
+        
+        <div class="audio-col-center">
+            <button id="btnAudio" class="audio-control">
+                <span id="audioIcon">▶</span> <span id="audioText">Play</span>
+            </button>
+            <audio id="audioGaleria" loop>
+                <source src={audioSrc} type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-col-right">
+            {siguienteUrl && (
+                <a href={siguienteUrl} class="audio-flecha" id="btnSiguiente">
+                    <span class="flecha-texto">SIG</span> <span class="flecha-simbolo">&#8250;</span>
+                </a>
+            )}
+        </div>
+    </div>
+
+    <!-- Grilla de la Galería Dinámica -->
+    <section class="galeria-grid" id="galeria">
+        {imagenes.map((img: Imagen) => (
+            <div class={`galeria-item ${img.horizontal ? 'item-horizontal' : ''}`}>
+                <img src={img.src} alt="Foto de colección" />
+            </div>
+        ))}
+    </section>
+    
+    <nav class="nav-galeria">
+        <a href="/colecciones" class="btn-volver">&#8592; VOLVER A COLECCIONES</a>
+    </nav>
+
+    <Footer />
+
+    <!-- Modal de Imagen -->
+    <div id="imageModal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
+        <span onclick="document.getElementById('imageModal').style.display='none'" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer; z-index:10001;">&times;</span>
+        <div class="modal-img-container">
+            <img id="modalImg" alt="Vista ampliada">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script is:inline src="/js/galeria.js"></script>
+    <script is:inline src="/js/main.js"></script>
+    
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/5493411234567" class="whatsapp-float" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </a>
+</body>
+</html>
