@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/style.css';
 import '../styles/galeria.css';
+const base = import.meta.env.BASE_URL;
 
 interface Imagen {
     src: string;
@@ -77,8 +78,8 @@ const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes } = Astro.props;
     </div>
 
     <!-- Scripts -->
-    <script is:inline src="/js/galeria.js"></script>
-    <script is:inline src="/js/main.js"></script>
+    <script is:inline src={`${base}/js/main.js`}></script>
+    <script is:inline src={`${base}/js/galeria.js`}></script>
     
     <!-- Botón Flotante WhatsApp -->
     <a href="https://wa.me/5493411234567" class="whatsapp-float" target="_blank">
