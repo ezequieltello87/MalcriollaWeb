@@ -1,41 +1,48 @@
 ---
 import GaleriaTemplate from '../components/GaleriaTemplate.astro';
+const base = import.meta.env.BASE_URL;
 
-const fotos = [
-    { src: "/img/RAÍCES- 2025/IMG_1893.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1895.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1898.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1901.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1913.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1916.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1924.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1928.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1930.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1934.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1941.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_1954.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2003.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2008.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2013.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2032.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2042.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2088.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2093.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2103.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2119.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2140.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2145.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2150.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2157.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2159.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2162.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2166.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2168.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2175.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2176.webp" },
-    { src: "/img/RAÍCES- 2025/IMG_2177.webp" },
-    // ... tus fotos
+// 1. Definimos las rutas relativas limpias
+const rutasFotos = [
+    "/img/RAÍCES- 2025/IMG_1893.webp",
+    "/img/RAÍCES- 2025/IMG_1895.webp",
+    "/img/RAÍCES- 2025/IMG_1898.webp",
+    "/img/RAÍCES- 2025/IMG_1901.webp",
+    "/img/RAÍCES- 2025/IMG_1913.webp",
+    "/img/RAÍCES- 2025/IMG_1916.webp",
+    "/img/RAÍCES- 2025/IMG_1924.webp",
+    "/img/RAÍCES- 2025/IMG_1928.webp",
+    "/img/RAÍCES- 2025/IMG_1930.webp",
+    "/img/RAÍCES- 2025/IMG_1934.webp",
+    "/img/RAÍCES- 2025/IMG_1941.webp",
+    "/img/RAÍCES- 2025/IMG_1954.webp",
+    "/img/RAÍCES- 2025/IMG_2003.webp",
+    "/img/RAÍCES- 2025/IMG_2008.webp",
+    "/img/RAÍCES- 2025/IMG_2013.webp",
+    "/img/RAÍCES- 2025/IMG_2032.webp",
+    "/img/RAÍCES- 2025/IMG_2042.webp",
+    "/img/RAÍCES- 2025/IMG_2088.webp",
+    "/img/RAÍCES- 2025/IMG_2093.webp",
+    "/img/RAÍCES- 2025/IMG_2103.webp" ,
+    "/img/RAÍCES- 2025/IMG_2119.webp" ,
+    "/img/RAÍCES- 2025/IMG_2140.webp" ,
+    "/img/RAÍCES- 2025/IMG_2145.webp" ,
+    "/img/RAÍCES- 2025/IMG_2150.webp" ,
+    "/img/RAÍCES- 2025/IMG_2157.webp" ,
+    "/img/RAÍCES- 2025/IMG_2159.webp" ,
+    "/img/RAÍCES- 2025/IMG_2162.webp" ,
+    "/img/RAÍCES- 2025/IMG_2166.webp" ,
+    "/img/RAÍCES- 2025/IMG_2168.webp" ,
+    "/img/RAÍCES- 2025/IMG_2175.webp" ,
+    "/img/RAÍCES- 2025/IMG_2176.webp" ,
+    "/img/RAÍCES- 2025/IMG_2177.webp" ,
+    
 ];
+
+// 2. Mapeamos el arreglo para antecesores el 'base' a cada una
+const fotos = rutasFotos.map(ruta => ({
+    src: `${base}${ruta}`
+}));
 ---
 
 <GaleriaTemplate 
