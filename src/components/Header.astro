@@ -2,6 +2,7 @@
 // src/components/Header.astro
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '';
+const { base } = Astro.props;
 ---
 
 <!-- Menú Lateral y Overlay integrados -->
@@ -21,9 +22,9 @@ const isHome = pathname === '/' || pathname === '';
         <div class="logo-bloque">
             <a href="/">
                 {isHome ? (
-                    <img src="/img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico" />
+                    <img src={`${base}/img/LOGO BLANCO.png`} alt="MALCRIOLLA" class="logo-dinamico" />
                 ) : (
-                    <img src="/img/LOGO NEGRO.png" alt="MALCRIOLLA" class="logo-estatico" />
+                    <img src={`${base}/img/LOGO NEGRO.png`} alt="MALCRIOLLA" class="logo-estatico" />
                 )}
             </a>
         </div>
