@@ -1,8 +1,10 @@
 ---
 // src/components/Header.astro
 const pathname = Astro.url.pathname;
-const isHome = pathname === '/' || pathname === '';
-const { base } = Astro.props;
+const base = Astro.props.base || '';
+// Compara si la ruta es exactamente igual a la base (con o sin barra final)
+const cleanBase = base.replace(/\/$/, '');
+const isHome = pathname === '/' || pathname === '' || pathname === `${base}` || pathname === `${base}/` || pathname === cleanBase;
 ---
 
 <!-- Menú Lateral y Overlay integrados -->
@@ -10,8 +12,8 @@ const { base } = Astro.props;
 <nav class="menu-lateral" id="menuLateral">
     <button class="menu-cerrar" id="menuCerrar">&times;</button>
     <div class="menu-contenido">
-        <a href="/">Inicio</a>
-        <a href="/colecciones">Colecciones</a>
+        <a href={`${base}/`}>Inicio</a>
+        <a href={`${base}/colecciones`}>Colecciones</a>
     </div>
 </nav>
 
@@ -20,7 +22,7 @@ const { base } = Astro.props;
     <div>
         <button class="menu-btn"><span>&#9776;</span></button>
         <div class="logo-bloque">
-            <a href="/">
+            <a href={`${base}/`}>
                 {isHome ? (
                     <img src={`${base}/img/LOGO BLANCO.png`} alt="MALCRIOLLA" class="logo-dinamico" />
                 ) : (
@@ -32,10 +34,10 @@ const { base } = Astro.props;
 
     <!-- Bloque Central (Menú de navegación centrado solo para PC) -->
     <nav class="nav-desktop">
-        <a href="/">INICIO</a>
-        <a href="/colecciones">COLECCIONES</a>
+        <a href={`${base}/`}>INICIO</a>
+        <a href={`${base}/colecciones`}>COLECCIONES</a>
         <a href="https://malcriolla.mitiendanube.com/" target="_blank">TIENDA</a>
-        <a href={isHome ? "#contacto" : "/#contacto"}>QUIENES SOMOS</a>
+        <a href={isHome ? "#contacto" : `${base}/#contacto`}>QUIENES SOMOS</a>
     </nav>
 
     <!-- Bloque Derecho (Redes / Instagram) -->
