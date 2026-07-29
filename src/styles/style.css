@@ -1,6 +1,6 @@
 @font-face { 
     font-family: 'Metrim'; 
-    src: url('/fonts/MetrimLetter-Regular.ttf') format('truetype'); 
+    src: url('/MalcriollaWeb/fonts/MetrimLetter-Regular.ttf') format('truetype'); 
 }
 
 
@@ -64,8 +64,7 @@ header .menu-btn {
 header .logo-dinamico {
     height: 35px !important;
     width: auto !important;
-    content: url("/img/LOGO BLANCO.png") !important; /* <- Agregale la barra inicial */
-    transition: all 0.4s ease;
+    content: url("/MalcriollaWeb/img/LOGO BLANCO.png") !important;    transition: all 0.4s ease;
 }
 
 /* Columna Central: Menú de navegación centrado en PC */
@@ -116,7 +115,7 @@ header.shrink .nav-desktop a {
 
 header.shrink .logo-dinamico { 
     height: 25px !important; 
-    content: url("/img/LOGO NEGRO.png") !important; /* <- Agregale la barra inicial */
+    content: url("/MalcriollaWeb/img/LOGO NEGRO.png") !important; /* <- Agregale la barra inicial */
 }
 
 
@@ -568,7 +567,7 @@ header.shrink {
 }
 header.shrink .logo-dinamico { 
     height: 25px !important; 
-    content: url("/img/LOGO NEGRO.png") !important; 
+    content: url("/MalcriollaWeb/img/LOGO NEGRO.png") !important; 
 }
 
 /* Por defecto en PC: Ocultamos el botón hamburguesa */

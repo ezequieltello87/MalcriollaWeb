@@ -1,18 +1,14 @@
-
-
-
 ---
 // src/components/HeaderIndex.astro
 const { base } = Astro.props;
 ---
 
-
 <div class="menu-overlay" id="menuOverlay"></div>
 <nav class="menu-lateral" id="menuLateral">
     <button class="menu-cerrar" id="menuCerrar">&times;</button>
     <div class="menu-contenido">
-        <a href="/">Inicio</a>
-        <a href="/colecciones">Colecciones</a>
+        <a href={`${base}/`}>Inicio</a>
+        <a href={`${base}/colecciones`}>Colecciones</a>
     </div>
 </nav>
 
@@ -20,16 +16,18 @@ const { base } = Astro.props;
     <div>
         <button class="menu-btn"><span>&#9776;</span></button>
         <div class="logo-bloque">
-            <a href="/">
-                <img src={`${base}/img/LOGO BLANCO.png`} alt="MALCRIOLLA" class="logo-dinamico">
-                
+            <a href={`${base}/`}>
+                <!-- Logo Blanco (Visible al inicio) -->
+                <img src={`${base}/img/LOGO BLANCO.png`} alt="MALCRIOLLA" class="logo-dinamico logo-blanco">
+                <!-- Logo Negro (Visible al hacer scroll / shrink) -->
+                <img src={`${base}/img/LOGO NEGRO.png`} alt="MALCRIOLLA" class="logo-dinamico logo-negro" style="display: none;">
             </a>
         </div>
     </div>
 
     <nav class="nav-desktop">
-        <a href="/">INICIO</a>
-        <a href={`${base}colecciones`}>COLECCIONES</a>
+        <a href={`${base}/`}>INICIO</a>
+        <a href={`${base}/colecciones`}>COLECCIONES</a>
         <a href="https://malcriolla.mitiendanube.com/" target="_blank">TIENDA</a>
         <a href="#contacto">QUIENES SOMOS</a>
     </nav>

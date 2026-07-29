@@ -17,14 +17,16 @@ const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes } = Astro.props;
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <!-- CORREGIDO: Favicon con base -->
+    <link rel="icon" type="image/png" href={`${base}/img/favicon.png`}>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{titulo} | MALCRIOLLA</title>
 </head>
 <body>
 
-    <Header />
+    <!-- CORREGIDO: Le pasamos la prop base al Header -->
+    <Header base={base} />
 
     <!-- Reproductor de Audio con Navegación Simétrica -->
     <div class="audio-container-grid">
@@ -64,7 +66,7 @@ const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes } = Astro.props;
     </section>
     
     <nav class="nav-galeria">
-        <a href="/colecciones" class="btn-volver">&#8592; VOLVER A COLECCIONES</a>
+        <a href={`${base}/colecciones`} class="btn-volver">&#8592; VOLVER A COLECCIONES</a>
     </nav>
 
     <Footer />

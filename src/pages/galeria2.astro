@@ -1,16 +1,60 @@
 ---
 import GaleriaTemplate from '../components/GaleriaTemplate.astro';
+const base = import.meta.env.BASE_URL;
 
-const fotos = [
-    { src: "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0739.webp" },
-    // ... tus fotos
+// 1. Definimos el arreglo con rutas normales (strings) y horizontales (objetos)
+const rutasFotos = [
+    "/img/DENIM SIN REGLAS - 2026/1.webp",
+    "/img/DENIM SIN REGLAS - 2026/04.webp", 
+    "/img/DENIM SIN REGLAS - 2026/4.webp", 
+    { ruta: "/img/DENIM SIN REGLAS - 2026/7.webp", horizontal: true },
+    "/img/DENIM SIN REGLAS - 2026/11.webp",
+    "/img/DENIM SIN REGLAS - 2026/12.webp",
+    "/img/DENIM SIN REGLAS - 2026/13.webp",
+    "/img/DENIM SIN REGLAS - 2026/14.webp",
+    "/img/DENIM SIN REGLAS - 2026/15.webp",
+    "/img/DENIM SIN REGLAS - 2026/17.webp",
+    "/img/DENIM SIN REGLAS - 2026/20.webp",
+    "/img/DENIM SIN REGLAS - 2026/22.webp",
+    "/img/DENIM SIN REGLAS - 2026/23.webp",
+    "/img/DENIM SIN REGLAS - 2026/24.webp",
+    "/img/DENIM SIN REGLAS - 2026/26.webp",
+    "/img/DENIM SIN REGLAS - 2026/27.webp",
+    { ruta: "/img/DENIM SIN REGLAS - 2026/28.webp", horizontal: true },
+    "/img/DENIM SIN REGLAS - 2026/29.webp",
+    "/img/DENIM SIN REGLAS - 2026/32.webp",
+    "/img/DENIM SIN REGLAS - 2026/34.webp",
+    "/img/DENIM SIN REGLAS - 2026/36.webp",
+    "/img/DENIM SIN REGLAS - 2026/37.webp",
+    "/img/DENIM SIN REGLAS - 2026/39.webp",
+    "/img/DENIM SIN REGLAS - 2026/40.webp",
+    "/img/DENIM SIN REGLAS - 2026/42.webp",
+    "/img/DENIM SIN REGLAS - 2026/47.webp",
+    "/img/DENIM SIN REGLAS - 2026/48.webp",
+    "/img/DENIM SIN REGLAS - 2026/51.webp",
+    "/img/DENIM SIN REGLAS - 2026/52.webp",
+    "/img/DENIM SIN REGLAS - 2026/53.webp",
+    "/img/DENIM SIN REGLAS - 2026/54.webp",
+    "/img/DENIM SIN REGLAS - 2026/59.webp",
+    "/img/DENIM SIN REGLAS - 2026/63.webp",
+    { ruta: "/img/DENIM SIN REGLAS - 2026/60.webp", horizontal: true },
+    { ruta: "/img/DENIM SIN REGLAS - 2026/62.webp", horizontal: true }
 ];
+
+// 2. Mapeamos usando rutasFotos correctamente
+const fotos = rutasFotos.map(item => {
+    if (typeof item === 'string') {
+        return { src: `${base}${item}` };
+    } else {
+        return { src: `${base}${item.ruta}`, horizontal: item.horizontal };
+    }
+});
 ---
 
 <GaleriaTemplate 
-    titulo="Denim Sin Reglas 2024"
-    audioSrc="/tu-tema-2024.mp3"
-    anteriorUrl=""
-    siguienteUrl="/galeria1"
+    titulo="Denim Sin Reglas 2026"
+    audioSrc="/God Save The Queen - Sex Pistols.mp3"
+    anteriorUrl="/galeria1"
+    siguienteUrl=""
     imagenes={fotos}
 />

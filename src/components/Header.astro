@@ -2,9 +2,12 @@
 // src/components/Header.astro
 const pathname = Astro.url.pathname;
 const base = Astro.props.base || '';
-// Compara si la ruta es exactamente igual a la base (con o sin barra final)
+// Normalizamos la ruta quitándole barras finales para comparar de forma limpia
+const cleanPath = pathname.replace(/\/$/, '');
 const cleanBase = base.replace(/\/$/, '');
-const isHome = pathname === '/' || pathname === '' || pathname === `${base}` || pathname === `${base}/` || pathname === cleanBase;
+
+// Es el home si la ruta es exactamente la base o está vacía/raíz
+const isHome = cleanPath === cleanBase || cleanPath === '' || cleanPath === '/';
 ---
 
 <!-- Menú Lateral y Overlay integrados -->

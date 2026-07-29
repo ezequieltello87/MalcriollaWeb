@@ -1,51 +1,57 @@
 ---
 import GaleriaTemplate from '../components/GaleriaTemplate.astro';
+const base = import.meta.env.BASE_URL;
 
-// Listado de imágenes de esta galería específica
-const fotos = [
-    { src: "/img/DENIM SIN REGLAS - 2026/1.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/04.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/4.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/7.webp", horizontal: true },
-    { src: "/img/DENIM SIN REGLAS - 2026/11.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/12.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/13.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/14.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/15.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/17.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/20.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/22.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/23.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/24.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/26.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/27.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/28.webp", horizontal: true },
-    { src: "/img/DENIM SIN REGLAS - 2026/29.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/32.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/34.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/36.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/37.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/39.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/40.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/42.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/47.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/48.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/51.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/52.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/53.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/54.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/59.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/63.webp" },
-    { src: "/img/DENIM SIN REGLAS - 2026/60.webp", horizontal: true },
-    { src: "/img/DENIM SIN REGLAS - 2026/62.webp", horizontal: true },
-    // Agregás el resto de tus fotos acá...
+// 1. Definimos las rutas relativas limpias
+const rutasFotos = [
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0739.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0760.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0761.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0768.webp" ,
+    { ruta: "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0773.webp", horizontal: true },
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0785.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0807.webp" ,
+    {ruta:"/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0827_.webp" , horizontal: true },
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0834.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0842.webp" ,
+    {ruta:"/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0851.webp" , horizontal: true },
+    {ruta:"/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0855.webp" , horizontal: true },
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0868.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0877.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0883.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0896.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0899.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0911.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0918.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0926.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0946.webp" ,
+    {ruta:"/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0948.webp" , horizontal: true },
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0954.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0959.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0966.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0971.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0978.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0981.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0987.webp" ,
+    "/img/CAPSULA DENIM SIN REGLAS 2024/DSC_0997.webp" ,
+    {ruta:"/img/CAPSULA DENIM SIN REGLAS 2024/DSC_1007.webp" , horizontal: true },
+    {ruta:"/img/CAPSULA DENIM SIN REGLAS 2024/DSC_1008.webp" , horizontal: true },
+    // ... tus fotos
 ];
+// 2. Mapeamos usando rutasFotos correctamente
+const fotos = rutasFotos.map(item => {
+    if (typeof item === 'string') {
+        return { src: `${base}${item}` };
+    } else {
+        return { src: `${base}${item.ruta}`, horizontal: item.horizontal };
+    }
+});
 ---
 
 <GaleriaTemplate 
-    titulo="Denim Sin Reglas 2026"
-    audioSrc="/God Save The Queen - Sex Pistols.mp3"
-    anteriorUrl="/galeria1"
-    siguienteUrl=""
+    titulo="Denim Sin Reglas 2024"
+    audioSrc="/tu-tema-2024.mp3"
+    anteriorUrl=""
+    siguienteUrl="/galeria1"
     imagenes={fotos}
 />
