@@ -58,9 +58,15 @@ const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes } = Astro.props;
 
     <!-- Grilla de la Galería Dinámica -->
     <section class="galeria-grid" id="galeria">
-        {imagenes.map((img: Imagen) => (
+        {imagenes.map((img: Imagen, index: number) => (
             <div class={`galeria-item ${img.horizontal ? 'item-horizontal' : ''}`}>
-                <img src={img.src} alt="Foto de colección" />
+                <img 
+                    src={img.src} 
+                    alt="Foto de colección" 
+                    loading={index < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                    {...(index < 2 ? { "fetchpriority": "high" } : {})}
+                />
             </div>
         ))}
     </section>

@@ -581,3 +581,61 @@ header.shrink .logo-dinamico {
         display: block !important;
     }
 }
+
+/* --- Nueva Sección de Valores (Suave y coherente) --- */
+.seccion-valores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 80px 40px;
+    background-color: #f9f9f9; /* Color suave en lugar de negro */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.valor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.valor-item .icono {
+    font-size: 32px;
+    margin-bottom: 20px;
+    filter: grayscale(1); /* Iconos más sutiles */
+}
+
+.valor-item h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente estándar del sitio */
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.valor-item p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #666; /* Gris intermedio para menos contraste */
+    line-height: 1.6;
+    max-width: 250px;
+}
+
+/* --- Adaptación responsive --- */
+@media (max-width: 768px) {
+    .seccion-valores {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+    }
+    
+    .valor-item {
+        margin-bottom: 40px;
+    }
+    .valor-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
