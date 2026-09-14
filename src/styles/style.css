@@ -4,7 +4,13 @@
 }
 
 
-
+@font-face { 
+    font-family: 'MADEAwelier'; 
+    src: url('/MalcriollaWeb/fonts/MADEAwelierPERSONALUSE-Regular.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 * {
     margin: 0;
     padding: 0;
