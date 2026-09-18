@@ -11,7 +11,7 @@ interface Imagen {
     horizontal?: boolean;
 }
 
-const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes } = Astro.props;
+const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes, imagenPortada, textoDescriptivo } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -55,6 +55,23 @@ const { titulo, audioSrc, anteriorUrl, siguienteUrl, imagenes } = Astro.props;
             )}
         </div>
     </div>
+
+    {/* ================= NUEVO: SECCIÓN DE INTRODUCCIÓN (Imagen y Texto) ================= */}
+    {(imagenPortada || textoDescriptivo) && (
+        <section class="galeria-intro">
+            {imagenPortada && (
+                <div class="intro-imagen-container">
+                    <img src={imagenPortada} alt={`Portada de ${titulo}`} />
+                </div>
+            )}
+            {textoDescriptivo && (
+                <div class="intro-texto-container">
+                    
+                    <p>{textoDescriptivo}</p>
+                </div>
+            )}
+        </section>
+    )}
 
     <!-- Grilla de la Galería Dinámica -->
     <section class="galeria-grid" id="galeria">

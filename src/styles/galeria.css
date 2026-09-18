@@ -3,6 +3,18 @@
     src: url('../fonts/MetrimLetter-Regular.ttf') format('truetype');
 }
 
+@font-face { 
+    font-family: 'MADEAwelier'; 
+    src: url('../fonts/MADEAwelierPERSONALUSE-Regular.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: 'BankGothic'; 
+    src: url('../fonts/bank-gothic.ttf') format('truetype'); 
+
+}
 body { 
     padding-top: 50px !important; /* Aumenta o baja este número según lo alto que quieras el respiro */
     margin: 0;
@@ -326,4 +338,34 @@ header > .ig-link,
         bottom: 20px;
         right: 20px;
     }
+}
+
+/* ==========================================================================
+   INTRODUCCIÓN DE LA GALERÍA (Imagen y Texto inicial)
+   ========================================================================== */
+.galeria-intro {
+    max-width: 1000px;
+    margin: 40px auto 20px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.intro-imagen-container img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+
+
+.intro-texto-container p {
+    font-family: 'BankGothic', sans-serif !important; /* Forzamos con !important para ver si salta */
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    max-width: 800px;
+    margin: 0 auto;
+    text-transform: uppercase;
 }
